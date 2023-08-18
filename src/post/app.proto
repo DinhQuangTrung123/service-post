@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package app;
+
+service PostController {
+  rpc createPost (createPostDto) returns (PostResponse) {}
+}
+
+message createPostDto {
+  string name = 1;
+}
+
+message PostResponse {
+  string name = 1;
+  int32 id = 2;
+}
+

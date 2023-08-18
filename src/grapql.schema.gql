@@ -1,0 +1,70 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CommentEntity {
+  content: String!
+  id: Float!
+  post: PostEntity
+  postId: Int!
+}
+
+input CreateCommentInput {
+  content: String!
+  postId: Int!
+}
+
+input CreatePostDto {
+  name: String!
+}
+
+input CreateTitleInput {
+  name: String
+}
+
+type Mutation {
+  createComment(createCommentInput: CreateCommentInput!): CommentEntity!
+  createPost(createPostInput: CreatePostDto!): PostEntity!
+  createTitle(CreateTitleInput: CreateTitleInput!): TitleEntity!
+  removeComment(id: Int!): CommentEntity!
+  updateComment(updateCommentInput: UpdateCommentInput!): CommentEntity!
+  updateTitle(updateTitleDto: UpdateTitleDto!): TitleEntity!
+  updateTitleTransaction(updateTitleDto: UpdateTitleDto!): TitleEntity!
+  updateTitleTransactionDeallock(updateTitleDto: UpdateTitleDto!): TitleEntity!
+}
+
+type PostEntity {
+  contents: [CommentEntity!]
+  id: Float!
+  name: String!
+}
+
+type Query {
+  findOne(id: Int!): TitleEntity!
+  getComments: [CommentEntity!]!
+  getPost(id: Int!): PostEntity!
+  getPosts: [PostEntity!]!
+}
+
+type Subscription {
+  commentAdded: CommentEntity!
+}
+
+type TitleEntity {
+  getTitles: [TitleEntity!]!
+  id: Float!
+  name: String!
+  status: Float!
+  version: Float!
+}
+
+input UpdateCommentInput {
+  content: String
+  id: Int!
+  postId: Int
+}
+
+input UpdateTitleDto {
+  name: String
+  titleId: Int!
+}
