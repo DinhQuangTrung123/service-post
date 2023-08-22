@@ -10,6 +10,8 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { join } from 'path';
 import { CommentModule } from './comment/comment.module';
 import { TitleModule } from './title/title.module';
+import { GoogleSheetApiModule } from './google-sheet-api/google-sheet-api.module';
+import { graphqlErrorFormat } from 'config';
 
 @Module({
   imports: [
@@ -20,6 +22,7 @@ import { TitleModule } from './title/title.module';
       installSubscriptionHandlers: true, // enable subscription functionality.
       sortSchema: true,
       playground: true,
+      formatError: graphqlErrorFormat,
       // plugins: [ApolloServerPluginLandingPageLocalDefault()],
       //   subscriptions: {
       //     'subscriptions-transport-ws': {
@@ -36,6 +39,7 @@ import { TitleModule } from './title/title.module';
     PostModule,
     CommentModule,
     TitleModule,
+    GoogleSheetApiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

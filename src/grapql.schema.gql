@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AddRowGoogleSheetApiInput {
+  email: String
+  password: String
+  username: String
+}
+
 type CommentEntity {
   content: String!
   id: Float!
@@ -14,6 +20,10 @@ input CreateCommentInput {
   postId: Int!
 }
 
+input CreateGoogleSheetApiInput {
+  name: String
+}
+
 input CreatePostDto {
   name: String!
 }
@@ -22,10 +32,20 @@ input CreateTitleInput {
   name: String
 }
 
+input DeleteRowGoogleSheetApiInput {
+  columnName: String
+  value: String
+}
+
 type Mutation {
+  DeleteRowGoogleSheet(deleteRowGoogleSheetApiInput: DeleteRowGoogleSheetApiInput!): String!
+  UpdateGoogleSheet(updateRowGoogleSheetApiInput: UpdateRowGoogleSheetApiInput!): String!
+  addGoogleSheetApi(addRowGoogleSheetApiInput: AddRowGoogleSheetApiInput!): String!
   createComment(createCommentInput: CreateCommentInput!): CommentEntity!
+  createGoogleSheetApi(createGoogleSheetApiInput: CreateGoogleSheetApiInput!): String!
   createPost(createPostInput: CreatePostDto!): PostEntity!
   createTitle(CreateTitleInput: CreateTitleInput!): TitleEntity!
+  initializeGoogleSheetApi(initializeGoogleSheetApi: CreateGoogleSheetApiInput!): String!
   removeComment(id: Int!): CommentEntity!
   updateComment(updateCommentInput: UpdateCommentInput!): CommentEntity!
   updateTitle(updateTitleDto: UpdateTitleDto!): TitleEntity!
@@ -40,6 +60,7 @@ type PostEntity {
 }
 
 type Query {
+  downloadRowGoogleSheet: String!
   findOne(id: Int!): TitleEntity!
   getComments: [CommentEntity!]!
   getPost(id: Int!): PostEntity!
@@ -62,6 +83,13 @@ input UpdateCommentInput {
   content: String
   id: Int!
   postId: Int
+}
+
+input UpdateRowGoogleSheetApiInput {
+  columnName: String
+  email: String
+  password: String
+  username: String
 }
 
 input UpdateTitleDto {

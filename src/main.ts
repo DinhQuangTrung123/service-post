@@ -20,9 +20,9 @@ async function bootstrap() {
   // app.useGlobalPipes(new ValidationPipe());
   // console.log('Post is listening');
   // await app.listen();
-  
+
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  await app.listen(3000, () => console.log(`Server now listening on 3000`));
 }
 bootstrap();

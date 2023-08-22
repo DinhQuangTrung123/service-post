@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#credential
+organic-edge-396405-a3a47fddaa45.json
